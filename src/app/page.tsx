@@ -1,101 +1,138 @@
+import Link from "next/link";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { SparklesIcon, UsersIcon } from "lucide-react";
+import { SliderButton } from "@/components/ui/slider";
 
-export default function Home() {
+export default function Hero() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+    <div className="min-h-screen text-white overflow-hidden relative selection:bg-teal-400/30 selection:text-white">
+      <div className="absolute inset-0 z-0">
         <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
+          src="/background.png"
+          alt="Background"
+          fill
           priority
+          className="object-fill object-center"
         />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+      </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      <div className="relative z-10">
+        <nav className="container mx-auto flex items-center justify-between py-4">
+          <div className="flex items-center gap-8">
+            <Link
+              href="/"
+              className="flex flex-row items-center justify-center gap-2"
+            >
+              <UsersIcon className="w-6 h-6" />
+              <span className="font-semibold">TeamSync</span>
+            </Link>
+
+            <div className="hidden md:flex items-center gap-6">
+              <Link
+                href="#"
+                className="text-gray-300 hover:text-white transition-colors"
+              >
+                Products
+              </Link>
+              <Link
+                href="#"
+                className="text-gray-300 hover:text-white transition-colors"
+              >
+                Resources
+              </Link>
+              <Link
+                href="#"
+                className="text-gray-300 hover:text-white transition-colors"
+              >
+                Pricing
+              </Link>
+              <Link
+                href="#"
+                className="text-gray-300 hover:text-white transition-colors"
+              >
+                Blog
+              </Link>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-4">
+            <Link
+              href="/login"
+              className="text-gray-300 hover:text-white transition-colors"
+            >
+              Log in
+            </Link>
+            <Button
+              imgSrc="/background-button.png"
+              className="bg-gradient-to-b from-teal-200/80 to-teal-500/70 text-white rounded-full font-medium text-md transition-all hover:shadow-[0_0_25px_rgba(45,212,191,0.4)] hover:opacity-90 backdrop-blur-sm relative overflow-hidden border-teal-700 border-4 shadow-lg"
+            >
+              <SparklesIcon className="w-4 h-4 mr-2" />
+              Try For Free
+            </Button>
+          </div>
+        </nav>
+
+        <main className="container mx-auto text-center pt-20 pb-32">
+          <div className="inline-flex items-center bg-gradient-to-r from-gray-500/20 to-gray-400/30 backdrop-blur-sm border border-teal-500/20 rounded-full gap-3 p-2 mb-12 ">
+            <SliderButton defaultValue={[0]} max={100} step={1} href="/" />
+          </div>
+
+          <div className="max-w-5xl mx-auto space-y-6">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-tight">
+              High-performing remote teams.
+              <br />
+              The future of work.
+            </h1>
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+              Powerful, self-serve team engagement tools and analytics.
+              Supercharge your managers & keep employees engaged from anywhere.
+            </p>
+            <Button
+              size="lg"
+              imgSrc="/background-button.png"
+              className="bg-gradient-to-b from-teal-200/80 to-teal-500/70 text-white px-8 py-6 rounded-full font-medium text-lg transition-all hover:shadow-[0_0_25px_rgba(45,212,191,0.4)] hover:opacity-90 backdrop-blur-sm relative overflow-hidden border-teal-700 border-4 shadow-lg"
+            >
+              <SparklesIcon className="w-5 h-5 mr-2 inline-block" />
+              Try For Free
+            </Button>
+          </div>
+
+          <div className="mt-24 space-y-6">
+            <p className="text-gray-400">Trusted by 4,000+ companies</p>
+            <div className="flex justify-center items-center gap-12 grayscale opacity-70">
+              <Image
+                src="/logo1.png"
+                alt="Boltshift"
+                width={120}
+                height={40}
+                className="object-contain"
+              />
+              <Image
+                src="/logo2.png"
+                alt="Lightbox"
+                width={120}
+                height={40}
+                className="object-contain"
+              />
+              <Image
+                src="/logo3.png"
+                alt="FeatherDev"
+                width={120}
+                height={40}
+                className="object-contain"
+              />
+              <Image
+                src="/logo4.png"
+                alt="GlobalBank"
+                width={120}
+                height={40}
+                className="object-contain"
+              />
+            </div>
+          </div>
+        </main>
+      </div>
     </div>
   );
 }
